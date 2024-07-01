@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 링크 밑줄 없애기 */
+        a {
+            text-decoration: none;
+        }
+
+        /* 화면 왼쪽의 메뉴 형태로 하기 위해 폭 조정 */ 
+        nav {
+            width: 300px;
+            margin: 50px 30px; /* 외부 상하 여백 : 50px, 좌우 여백 : 30px */
+        }
+
+        /* 리스트 점 제거. 메뉴처럼 보이기 위함 */
+        ul {
+            list-style: none;
+        }
+
+        /* 배너 형태의 메뉴가 되도록 */
+        li {
+            border: 1px solid #222;
+            padding: 20px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>도서관</h1>
+    <nav>
+        <ul>
+            <li><a href="#">도서관 시설</a></li>
+            <li><a href="#">도서관 정보</a></li>
+            <li><a href="#">도서관 자료</a></li>
+            <li><a href="#">도서관 위치</a></li>
+        </ul>
+    </nav>
+</body>
+</html>

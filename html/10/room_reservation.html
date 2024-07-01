@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객실 예약</title>
+    <style>
+        .container {
+            width: 960px;
+            margin: 0 auto;
+        }
+
+        /* ********************** 메뉴 *********************** */
+
+        .navi {
+            width: 960px;
+            height: 60px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ccc;
+        }
+
+        ul {
+            list-style: none;
+            padding-top: 10px;
+            padding-bottom: 5px;
+        }
+
+        .navi ul li {
+            display: inline-block;
+            width: 150px;
+            padding: 10px;
+        }
+
+        .navi a:link, .navi a:visited {
+            display: block;
+            font-size: 14px;
+            color: #000;
+            padding: 10px;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .navi a:hover, .navi a:focus {
+            background-color: lightskyblue;
+            color: white;
+        }
+
+        .navi a:active {
+            background-color: lightblue;
+        }
+
+        /* ******************** form - room 예약 ********************* */
+
+        .form_div {
+            width: 50%;
+            border: 2px solid black;
+            border-radius: 5px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        fieldset {
+            border: 1px solid #ccc;
+            margin-bottom: 30px;
+        }
+
+        fieldset > legend {
+            font-weight: 800;
+            font-size: 16px;
+            padding-left: 5px;
+            padding-bottom: 10px;
+        }
+
+        fieldset ul > li {
+            line-height: 30px;
+            margin: 25px 15px;
+        }
+
+        /* 
+            구조 가상 클래스 : 웹 문서 구조를 기준으로 특정 위치에 있는 요소를 찾아 스타일을 적용할 때
+                              사용하는 가상 클래스 선택자.
+        */
+
+        #personal_field:first-of-type label {
+            float: left;
+            font-size: 13px;
+            width: 60px;
+        }
+
+        #personal_field li input {
+            line-height: 1.5;
+            width: 200px;
+        }
+
+        /* 요소 상태에 따른 가상 클래스 */
+
+        /* :not : 특정 요소를 제외하고 스타일 적용 */
+        /* input tag 의 type 속성값이 radio 요소를 제외하고 스타일 적용 */
+        #personal_field input:not([type=raiod]) {
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            padding: 5px;
+            width: 200px;
+        }
+
+        /* 요소 상태 가상 클래스 and 사용자의 특정 동작에 반응하는 가상 클래스  */
+        #personal_field input:not([type=radio]):hover {
+            border-color: red;
+        }
+
+
+
+        #roomtype_field ul li {
+            line-height: 1.5;
+            font-size: 16px;
+        }
+
+        /* 요소 상태에 따른 가상 클래스 */
+
+        /* :checked 가상 클래스 선택자 - checked 속성이 있는 요소에 스타일 적용 */
+        /* 라디오 버튼을 클릭했을 때, label 을 빨간색 + 굵은 글자로 변경 
+        
+            => radio 의 형제 level( 인접 형제 선택자 ) 인 label 요수 중에서
+                첫 번째 요소만 선택되록 해야함.
+        */
+
+        #roomtype_field input:checked + label {
+            color: red; /* label 의 글자색 */
+            font-weight: bold;
+        }
+
+        .send_div button {
+            display: block;
+            margin: auto;
+            padding: 7px 25px;
+            font-size: 17px;
+            letter-spacing: 1px;
+            border-radius: 20px;
+        }    
+
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="navi">
+            <ul>
+                <li><a href="#intro">이용 안내</a></li>
+                <li><a href="#room">객실 소개</a></li>
+                <li><a href="#reservation">예약 방법 및 요금</a></li>
+                <li><a href="#">예약하기</a></li>
+            </ul>
+        </nav>
+
+        <div class="form_div">
+            <form>
+                <fieldset id="personal_field">
+                    <legend>개인 정보</legend>
+                    <ul>
+                        <li>
+                            <label for="input_name">이름</label>
+                            <input type="text" id="input_name">
+                        </li>
+                        <li>
+                            <label for="input_tel">연락처</label>
+                            <input type="tel" id="input_tel">
+                        </li>
+                    </ul>
+                </fieldset>
+
+                <fieldset id="roomtype_field">
+                    <legend>객실 형태</legend>
+                    <ul>
+                        <li>
+                            <input type="radio" name="room" id="basic">
+                            <label for="basic">기본형(최대 2인)</label>
+                        </li>
+                        <li>
+                            <input type="radio" name="room" id="family">
+                            <label for="family">가족형(최대 8인)</label>
+                        </li>
+                    </ul>
+                </fieldset>
+
+                <div class="send_div">
+                    <button type="submit">제출</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</body>
+</html>

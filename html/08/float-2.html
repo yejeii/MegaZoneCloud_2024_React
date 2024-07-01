@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Float2</title>
+    <style>
+
+        /* body 의 margin : 8 -> 브라우저의 기본 margin */
+        /* 브라우저의 기본 margin 을 0으로 초기화 */
+        /* * {
+            margin: 0;  
+        } */
+
+        div {
+            padding: 20px;
+            margin: 10px;
+        }
+
+        #box1 {
+
+            /*
+                1. float 하니까 inline-block 이 됨
+                2. 띄워서 왼쪽으로 갔다 == 아래 부분은 빈공간
+                3. 이때, 위치 기준은 body 의 컨텐츠 라인 기준으로 margin 이 띄워짐
+                4. float 끼리의 margin 은 안겹치나, 아래 부분과의 마진은 겹칠 수 있음
+                5. 왜? : 아래부분과 float 부분은 상관없는 영역인데 1차원 화면에 표시하다 보니 겹칠 수 있는 것!~
+            
+                >정리<
+                body 기준으로 왼쪽부터 자리를 잡게 됨.
+                body 의 margin 이 중첩이 되지 않도록 floating 됨.
+            */            
+            background-color: mediumorchid;
+            float: left;
+        }
+
+        #box2 {
+            /*
+                1. float 하니까 띄워서 box1 의 옆에 갔다.
+
+                >정리<
+                box1 기준으로 margin 을 유지하면서 floating 됨.
+            */
+            background-color: palegoldenrod;
+            float: left;
+        }
+
+        #box3{
+            /*
+                1. block-level 요소
+                2. 아랫부분 전체 차지. 이때, body 의 컨텐츠 라인 기준으로 margin 이 시작됨
+                3. 이때 해당 컨텐츠는 float 영역을 기준으로 피해서 잡힘
+
+                >정리<
+                floating 된 box1, box2 와의 위치 관계는 X
+                body 를 기준으로 왼쪽의 margin(body, box3) 은 유지하게 되고, 
+                top 쪽의 margin 은 중첩되게 위치함
+                (-> block level 요소가 세로로 위치하는 경우 마진 중첩이 발생!)
+            */
+            background-color: aquamarine;
+        }
+
+        #box4 {
+            /* 
+                1. 왼쪽으로 float 단, 바로 위 컨텐츠 영역의 왼쪽으로 가는데 이미 float 가 있으니 아래로 떠서 내려감
+
+                >정리<
+                box2, box3 의 마진과 중첩이 되지 않도록 margin 을 유지하면서 floating 됨.
+            */
+            background-color: peru;
+            float: left;
+        } 
+    </style>
+</head>
+<body>
+    <div id="box1">박스1</div>
+    <div id="box2">박스2</div>
+    <div id="box3">박스3</div>
+    <div id="box4">박스4</div>
+
+    <p>
+        정리.
+        float 끼리는 중첩 X
+        그러나 float 과 block-level 요소끼리는 margin 이 중첩될 수 있음 
+
+    </p>
+</body>
+</html>

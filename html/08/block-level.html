@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body * {
+            border: 1px solid green;
+        }
+
+        .accent {
+            color: red;
+            font-weight: bold;
+        }
+
+        .box1 {
+            width: 400px;   /* 절대적 크기(변하지 않음) */
+            height: 100px;
+        }
+
+        .box2 {
+            width: 50%;     /* 상위 부모(body) 크기의 50% */
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h1>개발자의 삶이란....</h1>
+    <div>내일 죽을 것처럼.. <p class="accent">오늘</p>을 살고</div>
+    <!-- inline level 의 박스 형태 : span -->
+    <p>영원히 살 것처럼 <span class="accent">내일</span>을 꿈꾸어라.</p>
+
+    <div class="box1"></div>
+    <div class="box2"></div>
+</body>
+</html>

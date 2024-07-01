@@ -1,0 +1,37 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* 
+    position 의 속성값을 relative 와 absolute 를 사용해서 요소 배치 
+    
+    relative 요소 : contents
+    absolute 요소 : h1
+
+    -> h1 은 contents 요소 기준으로 위치 지정됨.
+*/
+
+#contents {
+    background: url(../images/bg.jpg) no-repeat;
+    background-size: cover;     /* 이미지를 요소 크기(800*500)에 맞게 여백없이 설정 */
+    width: 800px;
+    height: 500px;
+    margin: 0 auto;
+    position:relative;      /* h1 tag 의 기준으로 사용을 위한 설정 */
+}
+
+h1 {
+    color: yellow;
+    font-size: 120px;
+    
+    position:absolute;      /* contents tag 의 기준으로 위치 지정 */
+    right: 100px;           /* contents 의 오른쪽에서 100px 만큼 떨어지게 함 */
+    bottom: 100px;          /* contents 의 아래에서 100px 만큼 떨어지게 함 */
+}
+
+div > h1:first-child {
+    color: aliceblue;
+}
+

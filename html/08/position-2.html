@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>포지션 속성</title>
+    <style>
+        /*
+            position 속성값
+
+            static : 웹 문서의 요소가 추가되는 흐름에 맞추어 배치됨
+                현재 문서의 요소는 모두 p 태그..
+                -> block level 요소이므로 순서대로 위에서 아래로 배치됨.
+
+            relative : 위치값을 지정할 수 있다는 것을 제외하고는 static 과 동일함
+
+            absolute : relative 값을 사용한 상위 요소를 기준으로 위치를 지정해서 배치
+
+            fixed : 브라우저 창을 기준으로 위치를 지정해서 배치
+
+        */
+
+        p {
+            width: 500px;
+            height: 200px;
+            background-color: #eee;
+            border: 1px solid #ccc;
+            line-height: 2;
+        }
+
+        #static {
+            position:static;
+        }
+
+        #relative-1 {
+            position: relative;
+        }
+
+        #relative-2 {
+            position: relative;
+            left: 100px;    /* 바로 위 box-level 요소의 컨텐츠 기준으로 왼쪽에서 100px 만큼 떨어지게 */
+            top: -200px;    /* 바로 위 box-level 요소의 컨텐츠 기준으로 위로 200px 만큼 이동 */
+        }
+
+        #fixed {
+            width: 500px;
+            height: 100px;
+            background-color: yellow;
+            position: fixed;
+            right: 30px;    /* 브라우저 기준으로 오른쪽에서 30 만큼 떨어지게 */
+            top: 30px;      /* 브라우저 기준으로 위에서 30 만큼 떨어지게 */
+        }
+    </style>
+</head>
+<body>
+    <p id="static"><b>static</b> Ex et adipisicing voluptate aliqua cupidatat nulla. Laboris est sint sit aliqua enim. Aute Lorem eu sint aute sunt proident. Do culpa consectetur elit duis laboris reprehenderit incididunt nulla. Pariatur fugiat voluptate ea non amet cupidatat. </p>
+    <!-- block level 두 번째 요소이므로 static 아래에 위치함 -->
+    <p id="relative-1"><b>relative-1</b> Lorem ipsum reprehenderit adipisicing exercitation enim velit veniam incididunt sit consectetur elit exercitation. Magna Lorem excepteur occaecat cupidatat sunt proident tempor do nostrud labore cillum non exercitation voluptate. </p>
+    <p id="relative-2"><b>relative-2</b> Excepteur voluptate ad irure ipsum duis. Deserunt cupidatat commodo proident eu mollit cillum commodo quis quis et ad. Velit id duis enim reprehenderit eu dolor Lorem excepteur excepteur. </p>
+    <p id="fixed"><b>fixed</b></p>
+</body>
+</html>

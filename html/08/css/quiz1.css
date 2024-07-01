@@ -1,0 +1,69 @@
+/* 
+    1. block Level 요소(div) 의 style 지정
+        - border style : line 지정
+        - padding 설정
+        - margin 설정
+    
+    2. 첫번째 div 와 세번째 div 의 모서리 라운드 처리
+
+    3. 세번째 div 의 table, th, td 설정
+        - border 설정
+        - border 가 현재는 두 개를 하나로 표시되도록 설정
+        - th, td 에 padding 적용
+
+    4. main div(sub div 가 3개로 구성)
+        - 중앙 정렬
+*/
+
+/* 1. 타입 스타일 */
+div {
+    border: 1px dotted gray;
+    margin: 20px 0;
+    padding: 20px;
+}
+
+/* 4. main div 설정 */
+.container {
+    width: 600px;
+    height: 1200px;
+    border: none;
+    margin: 0 auto; /* 중앙 정렬 */
+}
+
+/* 2. id 스타일 */
+#description {
+    border-radius: 25px 25px 0 0;
+}
+
+#goods {
+    border-radius: 0 0 25px 25px;
+}
+
+/* 3. 테이블 설정 */
+table, td, th  {
+    border: 2px solid wheat;
+
+    /* border 통합 */
+    border-collapse: collapse;
+}
+
+table {
+    width: 500px;
+    height: 300px;
+    margin: 0 auto;
+}
+
+td, th {
+    border : 2px solid wheat;
+    text-align: center;
+    padding: 10px;
+}
+
+thead > tr :first-child {
+    background-color: beige;
+}
+
+.colored{
+    background-color: beige;
+}
+
