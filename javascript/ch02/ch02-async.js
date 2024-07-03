@@ -290,6 +290,7 @@ function step3(msg) {
 // };
 
 // 3. 시작 Promise 와 단계별 메서드를 then() 으로 연결
+//    메서드 체이닝 : step1() 이 Promise 객체를 반환하기 떄문에 가능한 것!
 pizza
   .then((result) => step1(result))
   .then((result) => step2(result))
