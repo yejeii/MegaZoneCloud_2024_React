@@ -939,7 +939,7 @@ function filterThisMonth(searchConditionDate, dateArray) {
 const srartDate = new Date(2000, 9, 1, 0, 0, 0, 0);
 console.log("srartDate : " + srartDate);
 
-// 2000. oct. 31. 23:59:59
+// 2000. oct. 31. 23:59:59 : date 에 0 을 넣으면 그 전달의 마지막 일수로 처리됨
 const endDate = new Date(2000, 9 + 1, 0, 23, 59, 59);
 console.log("endDate : " + endDate);
 
