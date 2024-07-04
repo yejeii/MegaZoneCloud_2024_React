@@ -55,13 +55,7 @@ function Main() {
   // 방법2. 로그인 상태에 따른 UI 상태 반환
   if (user.loginFlag) {
     return (
-      <div
-        className="logout"
-        // style={{
-        //   backgroundColor: "green",
-        //   borderBottom: "3px solid red",
-        // }}
-      >
+      <div className="logout">
         {user.userName} 님, 반갑습니다.
         <a href="#">로그아웃</a>
       </div>
