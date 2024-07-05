@@ -37,8 +37,21 @@
  */
 const Button = ({ text, color = "white", children = [] }) => {
   //   console.log(props);
+
+  // 이벤트 핸들링 : 함수 방식
+  const onClickButton = () => {
+    console.log(text);
+  };
+
   return (
-    <button style={{ color: color }}>
+    <button
+      // 이벤트 핸들링 : 인라인 방식
+      // onClick={() => {
+      //   console.log(text);
+      // }}
+      onClick={onClickButton}
+      style={{ color: color }}
+    >
       {text}-{color.toUpperCase()}
       {children}
     </button>
