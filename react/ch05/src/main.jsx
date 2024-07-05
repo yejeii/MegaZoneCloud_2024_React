@@ -2,9 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 // import App from "./App.jsx";
 // import AppforState from "./AppForState";
-import AppforStateResult from "./AppForStateResult";
+// import AppforStateResult from "./AppForStateResult";
+import AppForRegister from "./AppForRegister";
 import "./index.css";
 
-ReactDOM.createRoot(document.getElementById("root")).render(
-  <AppforStateResult />
-);
+ReactDOM.createRoot(document.getElementById("root")).render(<AppForRegister />);
