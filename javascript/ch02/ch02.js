@@ -775,12 +775,16 @@ console.log(arr5.join("-"));
 /** 16. 변형 메서드 - reduce
  *  배열 요소를 모두 순회하면서 인수로 제공한 함수를 실행하고,
  *  단 하나의 결과값을 반환
+ * 
+ *  arr.reduce( (acc, item, index, array) => {
+ *    (...)
+ *  }, initial );
  *
  *  - 콜백 메서드를 전달해야 함 -> "리듀서" 라고 함
  *  - 콜백 메서드 전달시, 초기값 전달
  *  - acc 제공 : 누산기
  *    이전 함수의 호출 결과를 저장
- *    리듀서(콜백 메서드)의 두 번째 매개변수가 누산기의 초기값이 됨
+ *    reduce() 의 두 번째 매개변수가 누산기의 초기값이 됨
  *  - item, index, array 제공
  */
 console.log("--- 16. 변형 메서드 - reduce() ---");
@@ -792,7 +796,7 @@ let result = arr5.reduce((acc, item) => acc + item, 0);
 /**
  * acc : 누산기
  * item : 현재의 배열 요소
- * acc + item : 콜백 메서드
+ * (acc, item) => acc + item : 콜백 메서드
  * 0 : acc(누산기) 초기값
  *
  * 0 -> 0+1 -> 0+1+2 -> ... -> 0+1+2+3+4+5
