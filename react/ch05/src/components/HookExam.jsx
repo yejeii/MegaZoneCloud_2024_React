@@ -1,5 +1,7 @@
+import { useState } from "react";
+import useInput from "../hooks/useInput";
+
 /**
- *
  * - 2017 년도 이전의 React.js
  *   과거에는 Class 로만 컴포넌트를 만들어서 사용했었음
  *
@@ -28,5 +30,114 @@
  * - React Hooks 특징
  *   a. 조건문, 반복문 내부에서는 호출 불가능
  *   b. custom hook 구현이 가능
- *
  */
+
+/**
+ * Hook 관련된 3가지 사항
+ *
+ * 1. hook 은 반드시 함수 컴포넌트 이거나 custom hook 내부에서만 호출 가능
+ *
+ * 2. 조건문이나 반복문 내에선 호출 불가(오류 발생)
+ *
+ * 3. custom hook 을 직접 만들어서 사용 가능
+ *    작성 방법은 함수 작성시 함수명 앞에 접두어 use 를 붙이면 됨
+ *
+ *    좋은 활용법
+ *    custom hook 을 통해 컴포넌트 내부에서 반복되는 부분을 hook 을 통해 반복 사용할 수 있도록
+ *    분리할 수 있음
+ *
+ *    그리고, custom hook 은 별도의 디렉토리에 hooks 이름의 폴더를 만들어서 관리하는 것이 일반적임
+ */
+
+// 1. ERROR : Hooks can only be called inside of the body of a function component
+// const state = useState();
+
+// input tag 의 상태값을 관리하는 함수
+// hook 은 JS 함수에서 호출해서 사용할 수 없음..
+// function getInput() {
+//   // 새로운 상태 관리변수 생성
+//   const [input, setInput] = useState("");   // Hook 이 컴포넌트 밖에서 사용되었기 때문에 사용 불가.. -> custom hook 으로 만들자!
+
+//   // 이벤트 핸들러
+//   const onChange = (e) => {
+//     // 상태 변경함수 호출
+//     setInput(e.target.value);
+//   };
+
+//   return [input, onChange];
+// }
+
+// custom hook 함수 : 함수명 접두어로 "use" 기입
+// function useInput() {
+//   // 새로운 상태 관리변수 생성
+//   const [input, setInput] = useState("");
+
+//   // 이벤트 핸들러
+//   const onChange = (e) => {
+//     // 상태 변경함수 호출
+//     setInput(e.target.value);
+//   };
+
+//   return [input, onChange];
+// }
+
+// 컴포넌트 함수
+const HookExam = () => {
+  // 1. 컴포넌트 함수 내에서 hook 호출하면 사용 가능
+  const state = useState();
+
+  // 2.
+  let booleanFlag = true;
+  if (booleanFlag) {
+    let a = 0;
+
+    // 조건문 안에 hook 호출
+    // const state2 = useState();
+  }
+
+  for (let i = 0; i < 10; i++) {
+    let a = 0;
+
+    // const state2 = useState();
+  }
+
+  // 3.
+  /**
+   * input tag 에 입력되는 값을 관리
+   *
+   * - 새로운 상태 관리변수(state) 생성. 변수명 : input
+   * - 이벤트 핸들러 작성, 상태 변경함수(setInput) 호출
+   * - 변경되는 값을 state 변수에 저장해서 관리
+   *
+   * 하지만, 여러 개의 input tag 를 연속해서 사용하는 경우라면..
+   *
+   * state 변수도 그만큼 늘어나게 되어, 관리해야 할 코드가 증가하게 됨
+   *
+   *
+   */
+  // 새로운 상태 관리변수 생성
+  const [input, setInput] = useState("");
+
+  // 이벤트 핸들러
+  const onChange = (e) => {
+    // 상태 변경함수 호출
+    setInput(e.target.value);
+  };
+
+  // getInput() 호출, 구조분해할당으로 초기화 -> useInput() 사용
+  const [input2, onChange2] = useInput();
+  const [input3, onChange3] = useInput();
+
+  return (
+    <div>
+      <div>Hook Exam!</div>
+      <div>
+        <input type="text" value={input} onChange={onChange} /> {input}
+        <input type="text" value={input2} onChange={onChange2} /> {input2}
+        <input type="text" value={input3} onChange={onChange3} /> {input3}
+      </div>
+    </div>
+  );
+};
+
+export default HookExam;

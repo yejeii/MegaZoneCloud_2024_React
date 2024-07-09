@@ -4,9 +4,8 @@ import ReactDOM from "react-dom/client";
 // import AppforState from "./AppForState";
 // import AppforStateResult from "./AppForStateResult";
 // import AppForRegister from "./AppForRegister";
-import AppForRegisterUseRef from "./AppForRegisterUseRef";
+// import AppForRegisterUseRef from "./AppForRegisterUseRef";
+import AppForHook from "./AppForHook";
 import "./index.css";
 
-ReactDOM.createRoot(document.getElementById("root")).render(
-  <AppForRegisterUseRef />
-);
+ReactDOM.createRoot(document.getElementById("root")).render(<AppForHook />);
